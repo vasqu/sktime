@@ -110,7 +110,7 @@ class BaseDeepClassifier(BaseClassifier, ABC):
         # Not a good fix, but it is what it is
         eps_correction = 1e-5
         attempted_probs = probs / probs.sum(axis=1, keepdims=1)
-        probs = attempted_probs if not numpy.isnan(attempted_probs).any() else probs / (probs.sum(axis=1, keepdims=1) + eps_correction)
+        probs = attempted_probs if not np.isnan(attempted_probs).any() else probs / (probs.sum(axis=1, keepdims=1) + eps_correction)
         return probs
 
     def convert_y_to_keras(self, y):
